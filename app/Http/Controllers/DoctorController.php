@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
-use App\Models\Clinic;
 use App\Models\Doctor;
-use App\Models\Patient;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
-class AppointmentController extends Controller
+class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,9 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        // EC: Get all appintments
-        $appointments = Appointment::all();
-        return $appointments;
+        //EC: Get all doctors
+        $doctors = Doctor::all();
+        return $doctors;
     }
 
     /**
@@ -41,15 +37,14 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $appointment = new Appointment();
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
+        //EC: Store a new doctor
+        $doctor = new Doctor();
+        $doctor->drLastName = $request->drLastName;
+        $doctor->drFirstName = $request->drFirstName;
+        $doctor->drSpeciality = $request->drSpeciality;
+        $doctor->drPhoneNumber = $request->drPhoneNumber;
 
-        $appointment->save();
+        $doctor->save();
     }
 
     /**
@@ -60,9 +55,9 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        //FM: Get a patient by id
-        $appointment = Appointment::findOrFail($id);
-        return $appointment;
+        //FM: Get a clinic by id
+        $doctor = Doctor::findOrFail($id);
+        return $doctor;
     }
 
     /**
@@ -85,17 +80,15 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $appointment = Appointment::findOrFail($id);
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
+        //EC: Update a doctor
+        $doctor = Doctor::findOrFail($id);
+        $doctor->drLastName = $request->drLastName;
+        $doctor->drFirstName = $request->drFirstName;
+        $doctor->drSpeciality = $request->drSpeciality;
+        $doctor->drPhoneNumber = $request->drPhoneNumber;
 
-        $appointment->save();
-        return $appointment;
+        $doctor->save();
+        return $doctor;
     }
 
     /**
@@ -106,8 +99,8 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $appointments = Appointment::destroy($id);
-        return $appointments;
+        //EC: Delete a doctor
+        $doctor = Doctor::destroy($id);
+        return $doctor;
     }
 }

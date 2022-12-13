@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
-use App\Models\Clinic;
-use App\Models\Doctor;
-use App\Models\Patient;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
-class AppointmentController extends Controller
+class CliDrHourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +13,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        // EC: Get all appintments
-        $appointments = Appointment::all();
-        return $appointments;
+        //
     }
 
     /**
@@ -41,15 +34,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $appointment = new Appointment();
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
-
-        $appointment->save();
+        //
     }
 
     /**
@@ -60,9 +45,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        //FM: Get a patient by id
-        $appointment = Appointment::findOrFail($id);
-        return $appointment;
+        //
     }
 
     /**
@@ -86,16 +69,6 @@ class AppointmentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $appointment = Appointment::findOrFail($id);
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
-
-        $appointment->save();
-        return $appointment;
     }
 
     /**
@@ -107,7 +80,5 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         //
-        $appointments = Appointment::destroy($id);
-        return $appointments;
     }
 }
