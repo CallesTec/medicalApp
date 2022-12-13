@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CliDrHour;
 use Illuminate\Http\Request;
 
 class CliDrHourController extends Controller
@@ -13,7 +14,9 @@ class CliDrHourController extends Controller
      */
     public function index()
     {
-        //
+        //EC: Get all schedules
+        $cdhours = CliDrHour::all();
+        return $cdhours;
     }
 
     /**
@@ -34,7 +37,14 @@ class CliDrHourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //EC:  Store a new shedule
+        $cdhour = new CliDrHour();
+        $cdhour->clinic_id = $request->clinic_id;
+        $cdhour->doctor_id = $request->doctor_id;
+        $cdhour->startHour = $request->startHour;
+        $cdhour->endHour = $request->endHour;
+
+        $cdhour->save();
     }
 
     /**
@@ -45,7 +55,9 @@ class CliDrHourController extends Controller
      */
     public function show($id)
     {
-        //
+        //FM: Get a schedule by id
+        $cdhour = CliDrHour::findOrFail($id);
+        return $cdhour;
     }
 
     /**
@@ -68,7 +80,15 @@ class CliDrHourController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //EC:  Store a new shedule
+        $cdhour = CliDrHour::findOrFail($id);
+        $cdhour->clinic_id = $request->clinic_id;
+        $cdhour->doctor_id = $request->doctor_id;
+        $cdhour->startHour = $request->startHour;
+        $cdhour->endHour = $request->endHour;
+
+        $cdhour->save();
+        return $cdhour;
     }
 
     /**
@@ -79,6 +99,8 @@ class CliDrHourController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //EC: Delete a schedule by id
+        $cdhour = CliDrHour::destroy($id);
+        return $cdhour;
     }
 }

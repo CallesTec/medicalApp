@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use App\Models\Clinic;
-use App\Models\Doctor;
-use App\Models\Patient;
+// use App\Models\Clinic;
+// use App\Models\Doctor;
+// use App\Models\Patient;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Response;
 
 class AppointmentController extends Controller
 {
