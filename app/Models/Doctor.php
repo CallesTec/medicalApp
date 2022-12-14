@@ -15,13 +15,13 @@ class Doctor extends Model
         'drPhoneNumber'
     ];
 
-    public function appointments(){
+    // public function appointments(){
 
-        return $this->hasMany(Appointment::class);
-    }
+    //     return $this->hasMany(Appointment::class);
+    // }
 
-    public function clidrhours(){
+    // public function clidrhours(){
 
-        return $this->hasMany(CliDrHour::class);
-    }
+    //     return $this->hasMany(CliDrHour::class);
+    // }
 }

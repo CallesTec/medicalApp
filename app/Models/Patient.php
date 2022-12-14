@@ -20,8 +20,8 @@ class Patient extends Model
         'patBirthDay'
     ];
 
-    public function appointments(){
+    // public function appointments(){
 
-        return $this->hasMany(Appointment::class);
-    }
+    //     return $this->hasMany(Appointment::class);
+    // }
 }

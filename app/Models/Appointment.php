@@ -14,22 +14,21 @@ class Appointment extends Model
         'doctor_id',
         'apDate',
         'apReason',
-        'apMedicalRecord'
     ];
 
-    public function clinics(){
+    // public function clinics(){
         
-        return $this->belongsTo(Clinic::class);
-    }
+    //     return $this->belongsTo(Clinic::class);
+    // }
 
-    public function patients(){
+    // public function patients(){
         
-        return $this->belongsTo(Patient::class);
-    }
+    //     return $this->belongsTo(Patient::class);
+    // }
 
-    public function doctors(){
+    // public function doctors(){
         
-        return $this->belongsTo(Doctor::class);
-    }
+    //     return $this->belongsTo(Doctor::class);
+    // }
 
 }

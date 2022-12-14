@@ -33,7 +33,6 @@ return new class extends Migration
                     
             $table->dateTime('apDate');
             $table->string('apReason', 35);
-            $table->text('apMedicalRecord');
             $table->timestamps();
         });
     }

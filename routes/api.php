@@ -5,7 +5,7 @@ use App\Http\Controllers\CliDrHourController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
-use Illuminate\Http\Request;
+use App\Models\Diagnostic;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,4 +41,7 @@ Route::resource('clidrhours', CliDrHourController::class)
 
 // EC: Route for appointments
 Route::resource('appointments', AppointmentController::class)
+        ->only(['index', 'show', 'store', 'update', 'destroy']);
+
+Route::resource('diagnostics', Diagnostic::class)
         ->only(['index', 'show', 'store', 'update', 'destroy']);

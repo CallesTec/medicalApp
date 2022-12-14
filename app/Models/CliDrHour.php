@@ -15,13 +15,13 @@ class CliDrHour extends Model
         'endHour'
     ];
 
-    public function clinics(){
+    // public function clinics(){
 
-        return $this->belongsTo(Clinic::class);
-    }
+    //     return $this->belongsTo(Clinic::class);
+    // }
 
-    public function doctors(){
+    // public function doctors(){
 
-        return $this->belongsTo(Doctor::class);
-    }
+    //     return $this->belongsTo(Doctor::class);
+    // }
 }
