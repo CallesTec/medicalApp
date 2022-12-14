@@ -47,7 +47,6 @@ class AppointmentController extends Controller
         $appointment->doctor_id = $request->doctor_id;
         $appointment->apDate = $request->apDate;
         $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
 
         $appointment->save();
     }
@@ -92,7 +91,6 @@ class AppointmentController extends Controller
         $appointment->doctor_id = $request->doctor_id;
         $appointment->apDate = $request->apDate;
         $appointment->apReason = $request->apReason;
-        $appointment->apMedicalRecord = $request->apMedicalRecord;
 
         $appointment->save();
         return $appointment;
