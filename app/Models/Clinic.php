@@ -11,16 +11,7 @@ class Clinic extends Model
     protected $fillable = [
         'cliName',
         'cliAddress',
-        'cliPhoneNumber',
+        'cliPhoneNumber'
     ];
 
-    // public function appointments(){
-
-    //     return $this->hasMany(Appointment::class);
-    // }
-
-    // public function clidrhours(){
-
-    //     return $this->hasMany(CliDrHour::class);
-    // }
 }
