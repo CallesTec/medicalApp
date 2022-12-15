@@ -14,8 +14,8 @@ class DiagnosticController extends Controller
      */
     public function index()
     {
-        $diagnostic = Diagnostic::all();
-        return $diagnostic;
+        $diagnostics = Diagnostic::all();
+        return $diagnostics;
     }
 
     /**
@@ -53,7 +53,8 @@ class DiagnosticController extends Controller
      */
     public function show($id)
     {
-        $diagnostic = Diagnostic::finOrFail($id);
+        //FM: Get a patient by id
+        $diagnostic = Diagnostic::findOrFail($id);
         return $diagnostic;
     }
 

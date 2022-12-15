@@ -5,7 +5,7 @@ use App\Http\Controllers\CliDrHourController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
-use App\Models\Diagnostic;
+use App\Http\Controllers\DiagnosticController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,5 +43,5 @@ Route::resource('clidrhours', CliDrHourController::class)
 Route::resource('appointments', AppointmentController::class)
         ->only(['index', 'show', 'store', 'update', 'destroy']);
 
-Route::resource('diagnostics', Diagnostic::class)
+Route::resource('diagnostics', DiagnosticController::class)
         ->only(['index', 'show', 'store', 'update', 'destroy']);

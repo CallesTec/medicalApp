@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Diagnostic extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'patient_id',
         'doctor_id',
