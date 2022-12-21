@@ -6,7 +6,6 @@ use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DiagnosticController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*

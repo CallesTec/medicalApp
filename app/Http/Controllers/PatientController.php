@@ -165,6 +165,7 @@ class PatientController extends Controller
     public function destroy($id)
     {
         // EC: Delete a patient
+        
         Patient::destroy($id);
         return response()->json([
             "message" => "Patient deleted",
