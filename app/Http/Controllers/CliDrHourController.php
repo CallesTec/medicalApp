@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
+use App\Models\CliDrHour;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AppointmentController extends Controller
+class CliDrHourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,9 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        // EC: Get all appintments
-        $appointments = Appointment::all();
+        $cliDrHour = CliDrHour::all();
         return response()->json([
-            "result" => $appointments
+            "result" => $cliDrHour
         ], Response::HTTP_OK);
     }
 
@@ -40,23 +39,18 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+        $cliDrHour = new CliDrHour();
+        $cliDrHour->clinic_id = $request->clinic_id;
+        $cliDrHour->doctor_id = $request->doctor_id;
+        $cliDrHour->startHour = $request->startHour;
+        $cliDrHour->endHour = $request->endHour;
 
-
-        $appointment = new Appointment();
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
-
-        if ($appointment != null) {
-            $appointment->save();
+        if ($cliDrHour != null) {
+            $cliDrHour->save();
             return response()->json([
-                "message" => "An appointment has been created"
-            ], Response::HTTP_OK);        
-        }
-        
-    
+                "message" => "An schedule has been appointed"
+            ], Response::HTTP_OK);
+        } 
     }
 
     /**
@@ -67,9 +61,8 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        //FM: Get a patient by id
-        $appointment = Appointment::findOrFail($id);
-        return $appointment;
+        $cliDrHour = CliDrHour::findOrFail($id);
+        return $cliDrHour;
     }
 
     /**
@@ -92,18 +85,17 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $appointment = Appointment::findOrFail($id);
-        $appointment->clinic_id = $request->clinic_id;
-        $appointment->patient_id = $request->patient_id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->apDate = $request->apDate;
-        $appointment->apReason = $request->apReason;
+        $cliDrHour = CliDrHour::findOrFail($id);
+        $cliDrHour->clinic_id = $request->clinic_id;
+        $cliDrHour->doctor_id = $request->doctor_id;
+        $cliDrHour->startHour = $request->startHour;
+        $cliDrHour->endHour = $request->endHour;
 
-        if ($appointment != null) {
-            $appointment->save();
-            return response()->json([
-                "message" => "An appointment has been updated"
-            ], Response::HTTP_OK);        
+        if ($cliDrHour != null){
+            $cliDrHour->save();
+             return response()->json([
+                "message" => "An schedule has been updated"
+            ], Response::HTTP_OK);;
         }
     }
 
@@ -115,10 +107,10 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        $appointment = Appointment::destroy($id);
+        $cliDrHour = CliDrHour::destroy($id);
         return response()->json([
-            "message" => "An Appointment has been deleted",
-            "result" => $appointment
+            "message" => "An schedule has been deleted",
+            "result" => $cliDrHour
         ], Response::HTTP_OK);
     }
 }
