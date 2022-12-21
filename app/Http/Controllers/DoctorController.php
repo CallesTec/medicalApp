@@ -16,10 +16,10 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
-
-        return response()->json([
-            "results" => $doctors
-        ], Response::HTTP_OK);
+        return $doctors;
+        // return response()->json([
+        //     "results" => $doctors
+        // ], Response::HTTP_OK);
         
     }
 
@@ -56,10 +56,13 @@ class DoctorController extends Controller
             "drPhoneNumber" => $request->drPhoneNumber,
         ]);
 
-        return response()->json([
-            "message" => "Doctor created",
-            "result" => $doctor
-        ], Response::HTTP_OK); 
+        $doctor->save();
+        return $doctor;
+
+        // return response()->json([
+        //     "message" => "Doctor created",
+        //     "result" => $doctor
+        // ], Response::HTTP_OK); 
 
 
         // $doctor = new Doctor();
@@ -118,10 +121,12 @@ class DoctorController extends Controller
 
         $doctor->save();
 
-        return response()->json([
-            "message" => "Doctor updated",
-            "result" => $doctor
-        ], Response::HTTP_OK); 
+        return $doctor;
+
+        // return response()->json([
+        //     "message" => "Doctor updated",
+        //     "result" => $doctor
+        // ], Response::HTTP_OK); 
     }
 
     /**
@@ -132,9 +137,11 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-         Doctor::destroy($id);
-        return response()->json([
-            "message" => "Doctor deleted"
-        ], Response::HTTP_OK); 
+         $doctor = Doctor::destroy($id);
+         return $doctor;
+
+        // return response()->json([
+        //     "message" => "Doctor deleted"
+        // ], Response::HTTP_OK); 
     }
 }

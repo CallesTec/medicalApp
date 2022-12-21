@@ -17,9 +17,12 @@ class CliDrHourController extends Controller
     {
         //EC: Get all schedules
         $cdhours = CliDrHour::all();
-        return response()->json([
-            "results" => $cdhours
-        ], Response::HTTP_OK);
+        return $cdhours;
+
+
+        // return response()->json([
+        //     "results" => $cdhours
+        // ], Response::HTTP_OK);
     }
 
     /**
@@ -110,9 +113,11 @@ class CliDrHourController extends Controller
     {
         //EC: Delete a schedule by id
         $cdhour = CliDrHour::destroy($id);
-        return response()->json([
-            "message" => "An schedule has been deleted",
-            "result" => $cdhour
-        ], Response::HTTP_OK);
+        return $cdhour;
+        
+        // return response()->json([
+        //     "message" => "An schedule has been deleted",
+        //     "result" => $cdhour
+        // ], Response::HTTP_OK);
     }
 }

@@ -21,10 +21,11 @@ class DiagnosticController extends Controller
     public function index()
     {
         $diagnostics = Diagnostic::all();
+        return $diagnostics;
 
-        return response()->json([
-            "results" => $diagnostics
-        ], Response::HTTP_OK);
+        // return response()->json([
+        //     "results" => $diagnostics
+        // ], Response::HTTP_OK);
     }
 
     /**
@@ -141,9 +142,14 @@ class DiagnosticController extends Controller
     public function destroy($id)
     {
         $diagnostic = Diagnostic::destroy($id);
-        return response()->json([
-            "message" => "Diagnostic deleted",
-            "result" => $diagnostic
-        ], Response::HTTP_OK);
+        return $diagnostic;
     }
-}
+
+
+    //     return response()->json([
+    //         "message" => "Diagnostic deleted",
+    //         "result" => $diagnostic
+    //     ], Response::HTTP_OK);
+    
+    
+    }

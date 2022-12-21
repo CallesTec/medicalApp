@@ -17,9 +17,11 @@ class AppointmentController extends Controller
     {
         // EC: Get all appintments
         $appointments = Appointment::all();
-        return response()->json([
-            "result" => $appointments
-        ], Response::HTTP_OK);
+        return $appointments;
+
+        // return response()->json([
+        //     "result" => $appointments
+        // ], Response::HTTP_OK);
     }
 
     /**
@@ -51,9 +53,12 @@ class AppointmentController extends Controller
 
         if ($appointment != null) {
             $appointment->save();
-            return response()->json([
-                "message" => "An appointment has been created"
-            ], Response::HTTP_OK);        
+            
+            return $appointment;
+            
+            // return response()->json(
+            //     "message" => "An appointment has been created"
+            // ], Response::HTTP_OK);        
         }
         
     
@@ -101,9 +106,11 @@ class AppointmentController extends Controller
 
         if ($appointment != null) {
             $appointment->save();
-            return response()->json([
-                "message" => "An appointment has been updated"
-            ], Response::HTTP_OK);        
+
+            return $appointment;
+            // return response()->json([
+            //     "message" => "An appointment has been updated"
+            // ], Response::HTTP_OK);        
         }
     }
 
@@ -116,9 +123,12 @@ class AppointmentController extends Controller
     public function destroy($id)
     {
         $appointment = Appointment::destroy($id);
-        return response()->json([
-            "message" => "An Appointment has been deleted",
-            "result" => $appointment
-        ], Response::HTTP_OK);
+
+        return $appointment;
+
+        // return response()->json([
+        //     "message" => "An Appointment has been deleted",
+        //     "result" => $appointment
+        // ], Response::HTTP_OK);
     }
 }

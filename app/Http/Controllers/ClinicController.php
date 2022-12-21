@@ -16,10 +16,10 @@ class ClinicController extends Controller
     public function index()
     {
         $clinics = Clinic::all();
-
-        return response()->json([
-            "results" => $clinics
-        ], Response::HTTP_OK);
+        return $clinics;
+        // return response()->json([
+        //     "results" => $clinics
+        // ], Response::HTTP_OK);
     }
 
     /**
@@ -53,10 +53,14 @@ class ClinicController extends Controller
             "cliPhoneNumber" => $request->cliPhoneNumber
         ]);
 
-        return response()->json([
-            "message" => "Clinic created",
-            "result" => $clinic
-        ], Response::HTTP_OK); 
+        $clinic->save();
+
+        return $clinic;
+
+        // return response()->json([
+        //     "message" => "Clinic created",
+        //     "result" => $clinic
+        // ], Response::HTTP_OK); 
 
 
 
@@ -111,11 +115,12 @@ class ClinicController extends Controller
         $clinic->cliPhoneNumber = $request->cliPhoneNumber;
 
         $clinic->save();
+        return $clinic;
 
-        return response()->json([
-            "message" => "Clinic updated",
-            "result" => $clinic
-        ], Response::HTTP_OK); 
+        // return response()->json([
+        //     "message" => "Clinic updated",
+        //     "result" => $clinic
+        // ], Response::HTTP_OK); 
     }
 
     /**
@@ -126,9 +131,10 @@ class ClinicController extends Controller
      */
     public function destroy($id)
     {
-        Clinic::destroy($id);
-        return  response()->json([
-            "message" => "Clinic deleted"
-        ], Response::HTTP_OK);
+       $clinic = Clinic::destroy($id);
+        return $clinic;
+        // return  response()->json([
+        //     "message" => "Clinic deleted"
+        // ], Response::HTTP_OK);
     }
 }

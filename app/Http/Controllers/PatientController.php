@@ -17,10 +17,11 @@ class PatientController extends Controller
     {
         // EC: Get all Patients
         $patients = Patient::all();
+        return $patients;
 
-        return response()->json([
-            "results" => $patients
-        ], Response::HTTP_OK);
+        // return response()->json([
+        //     "results" => $patients
+        // ], Response::HTTP_OK);
         
     }
 
@@ -70,10 +71,13 @@ class PatientController extends Controller
             "patBirthDay" => $request->patBirthDay
              ]);
 
-        return response()->json([
-            "message" => "Patient created",
-            "result" => $patient
-        ], Response::HTTP_OK); 
+             $patient->save();
+             return $patient;
+
+        // return response()->json([
+        //     "message" => "Patient created",
+        //     "result" => $patient
+        // ], Response::HTTP_OK); 
     }
 
       // $patient = new Patient();
@@ -147,11 +151,12 @@ class PatientController extends Controller
                 $patient->patBirthDay = $request->patBirthDay;
 
                 $patient->save();
+                return $patient;
 
-            return response()->json([
-                "message" => "Patient updated",
-                "result" => $patient
-            ], Response::HTTP_OK); 
+            // return response()->json([
+            //     "message" => "Patient updated",
+            //     "result" => $patient
+            // ], Response::HTTP_OK); 
 
         }
     
@@ -166,9 +171,10 @@ class PatientController extends Controller
     {
         // EC: Delete a patient
         
-        Patient::destroy($id);
-        return response()->json([
-            "message" => "Patient deleted",
-        ], Response::HTTP_OK); 
+        $patient = Patient::destroy($id);
+        return $patient;
+        // return response()->json([
+        //     "message" => "Patient deleted",
+        // ], Response::HTTP_OK); 
     }
 }
