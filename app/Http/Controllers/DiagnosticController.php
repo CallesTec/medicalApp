@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnostic;
-use App\Models\Doctor;
-use App\Models\Patient;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 
 
 
@@ -23,9 +21,7 @@ class DiagnosticController extends Controller
         $diagnostics = Diagnostic::all();
         return $diagnostics;
 
-        // return response()->json([
-        //     "results" => $diagnostics
-        // ], Response::HTTP_OK);
+
     }
 
     /**
@@ -59,30 +55,6 @@ class DiagnosticController extends Controller
             return $diagnostic;
         } 
 
-        // return response()->json([
-        //     "message" => "Diagnostic created",
-        //     "result" => $diagnostic
-        // ], Response::HTTP_OK);
-
-        
-        
-        // $request->validate([
-        //     'patient_id' => 'required|exists:App\Models\Patient,id',
-        //     'doctor_id' => 'required|exists:App\Models\Doctor,id',
-        //     'diaDate' => 'required|date',
-        //     'diaDiagnostic' => 'required|text',
-        // ]);
-      
-
-        // $diagnostic = Diagnostic::create([
-        //     'patient_id' => $request->patient_id,
-        //     'doctor_id' => $request->doctor_id,
-        //     'diaDate' => $request->diaDate,
-        //     'diaDiagnostic' => $request->diaDiagnostic
-        // ]);
-        
-
-        // $diagnostic->save();
 
    
     }
@@ -95,6 +67,7 @@ class DiagnosticController extends Controller
      */
     public function show($id)
     {
+        //FM: Show a diagnostic
         $diagnostic = Diagnostic::finOrFail($id);
         return $diagnostic;
     }
@@ -119,7 +92,7 @@ class DiagnosticController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //FM: Update a Diagnostic
         $diagnostic = Diagnostic::findOrFail($id);
         $diagnostic->patient_id = $request->patient_id;
         $diagnostic->doctor_id = $request->doctor_id;
@@ -141,15 +114,10 @@ class DiagnosticController extends Controller
      */
     public function destroy($id)
     {
+        //FM: Destroy o delete a diagnostic
         $diagnostic = Diagnostic::destroy($id);
         return $diagnostic;
     }
-
-
-    //     return response()->json([
-    //         "message" => "Diagnostic deleted",
-    //         "result" => $diagnostic
-    //     ], Response::HTTP_OK);
     
     
     }

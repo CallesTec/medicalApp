@@ -16,17 +16,5 @@ class Doctor extends Model
     ];
     
 
-    // public function appointments(){
 
-    //     return $this->hasMany(Appointment::class);
-    // }
-
-    // public function clidrhours(){
-
-    //     return $this->hasMany(CliDrHour::class);
-    // }
-
-    // public function diagnostics(){
-    //     return $this->hasMany(Diagnostic::class);
-    // }
 }

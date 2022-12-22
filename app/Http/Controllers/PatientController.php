@@ -19,9 +19,6 @@ class PatientController extends Controller
         $patients = Patient::all();
         return $patients;
 
-        // return response()->json([
-        //     "results" => $patients
-        // ], Response::HTTP_OK);
         
     }
 
@@ -74,22 +71,8 @@ class PatientController extends Controller
              $patient->save();
              return $patient;
 
-        // return response()->json([
-        //     "message" => "Patient created",
-        //     "result" => $patient
-        // ], Response::HTTP_OK); 
     }
 
-      // $patient = new Patient();
-        // $patient->patLastName = $request->patLastName;
-        // $patient->patFirstName = $request->patFirstName;
-        // $patient->patPhoneNumber = $request->patPhoneNumber;
-        // $patient->patAddress = $request->patAddress;
-        // $patient->patInsurance = $request->patInsurance;
-        // $patient->patPersonalID = $request->patPersonalID;
-        // $patient->patCountry = $request->patCountry;
-        // $patient->patEmail = $request->patEmail;
-        // $patient->patBirthDay = $request->patBirthDay;
 
     /**
      * Display the specified resource.
@@ -124,6 +107,7 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //FM: Update a Patient
 
             $request->validate([
             'patLastName' => 'required|string',
@@ -153,10 +137,6 @@ class PatientController extends Controller
                 $patient->save();
                 return $patient;
 
-            // return response()->json([
-            //     "message" => "Patient updated",
-            //     "result" => $patient
-            // ], Response::HTTP_OK); 
 
         }
     
@@ -173,8 +153,6 @@ class PatientController extends Controller
         
         $patient = Patient::destroy($id);
         return $patient;
-        // return response()->json([
-        //     "message" => "Patient deleted",
-        // ], Response::HTTP_OK); 
+
     }
 }

@@ -14,13 +14,5 @@ class Clinic extends Model
         'cliPhoneNumber',
     ];
 
-    // public function appointments(){
 
-    //     return $this->hasMany(Appointment::class);
-    // }
-
-    // public function clidrhours(){
-
-    //     return $this->hasMany(CliDrHour::class);
-    // }
 }

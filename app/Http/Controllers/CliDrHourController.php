@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CliDrHour;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class CliDrHourController extends Controller
 {
@@ -19,10 +19,6 @@ class CliDrHourController extends Controller
         $cdhours = CliDrHour::all();
         return $cdhours;
 
-
-        // return response()->json([
-        //     "results" => $cdhours
-        // ], Response::HTTP_OK);
     }
 
     /**
@@ -115,9 +111,6 @@ class CliDrHourController extends Controller
         $cdhour = CliDrHour::destroy($id);
         return $cdhour;
         
-        // return response()->json([
-        //     "message" => "An schedule has been deleted",
-        //     "result" => $cdhour
-        // ], Response::HTTP_OK);
+
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Clinic;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+
 
 class ClinicController extends Controller
 {
@@ -17,9 +17,7 @@ class ClinicController extends Controller
     {
         $clinics = Clinic::all();
         return $clinics;
-        // return response()->json([
-        //     "results" => $clinics
-        // ], Response::HTTP_OK);
+
     }
 
     /**
@@ -57,17 +55,6 @@ class ClinicController extends Controller
 
         return $clinic;
 
-        // return response()->json([
-        //     "message" => "Clinic created",
-        //     "result" => $clinic
-        // ], Response::HTTP_OK); 
-
-
-
-        // $clinic = new Clinic();
-        // $clinic->cliName = $request->cliName;
-        // $clinic->cliAddress = $request->cliAddress;
-        // $clinic->cliPhoneNumber = $request->cliPhoneNumber;
 
     }
 
@@ -117,10 +104,7 @@ class ClinicController extends Controller
         $clinic->save();
         return $clinic;
 
-        // return response()->json([
-        //     "message" => "Clinic updated",
-        //     "result" => $clinic
-        // ], Response::HTTP_OK); 
+
     }
 
     /**
@@ -133,8 +117,6 @@ class ClinicController extends Controller
     {
        $clinic = Clinic::destroy($id);
         return $clinic;
-        // return  response()->json([
-        //     "message" => "Clinic deleted"
-        // ], Response::HTTP_OK);
+
     }
 }

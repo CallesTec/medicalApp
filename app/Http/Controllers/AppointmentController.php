@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class AppointmentController extends Controller
 {
@@ -19,9 +18,6 @@ class AppointmentController extends Controller
         $appointments = Appointment::all();
         return $appointments;
 
-        // return response()->json([
-        //     "result" => $appointments
-        // ], Response::HTTP_OK);
     }
 
     /**
@@ -55,10 +51,7 @@ class AppointmentController extends Controller
             $appointment->save();
             
             return $appointment;
-            
-            // return response()->json(
-            //     "message" => "An appointment has been created"
-            // ], Response::HTTP_OK);        
+                  
         }
         
     
@@ -97,6 +90,7 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //FM: Update the appointment
         $appointment = Appointment::findOrFail($id);
         $appointment->clinic_id = $request->clinic_id;
         $appointment->patient_id = $request->patient_id;
@@ -108,9 +102,7 @@ class AppointmentController extends Controller
             $appointment->save();
 
             return $appointment;
-            // return response()->json([
-            //     "message" => "An appointment has been updated"
-            // ], Response::HTTP_OK);        
+      
         }
     }
 
@@ -126,9 +118,5 @@ class AppointmentController extends Controller
 
         return $appointment;
 
-        // return response()->json([
-        //     "message" => "An Appointment has been deleted",
-        //     "result" => $appointment
-        // ], Response::HTTP_OK);
     }
 }

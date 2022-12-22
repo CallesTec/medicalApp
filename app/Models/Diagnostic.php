@@ -17,16 +17,6 @@ class Diagnostic extends Model
     ];
 
 
-    // public function doctors(){
-
-    //     return $this->belongsTo(Doctor::class);
-    // }
-
-    // public function patients(){
-
-    //     return $this->belongsTo(Patient::class);
-        
-    // }
     
 
 }

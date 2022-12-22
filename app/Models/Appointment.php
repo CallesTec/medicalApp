@@ -16,19 +16,4 @@ class Appointment extends Model
         'apReason',
     ];
 
-    // public function clinics(){
-        
-    //     return $this->belongsTo(Clinic::class);
-    // }
-
-    // public function patients(){
-        
-    //     return $this->belongsTo(Patient::class);
-    // }
-
-    // public function doctors(){
-        
-    //     return $this->belongsTo(Doctor::class);
-    // }
-
 }

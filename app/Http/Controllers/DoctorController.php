@@ -15,11 +15,9 @@ class DoctorController extends Controller
      */
     public function index()
     {
+        //FM: Show every doctor
         $doctors = Doctor::all();
         return $doctors;
-        // return response()->json([
-        //     "results" => $doctors
-        // ], Response::HTTP_OK);
         
     }
 
@@ -59,17 +57,6 @@ class DoctorController extends Controller
         $doctor->save();
         return $doctor;
 
-        // return response()->json([
-        //     "message" => "Doctor created",
-        //     "result" => $doctor
-        // ], Response::HTTP_OK); 
-
-
-        // $doctor = new Doctor();
-        // $doctor->drLastName = $request->drLastName;
-        // $doctor->drFirstName = $request->drFirstName;
-        // $doctor->drSpeciality = $request->drSpeciality;
-        // $doctor->drPhoneNumber = $request->drPhoneNumber;
         
     }
 
@@ -81,6 +68,7 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
+        //FM: Show a single doctor
         $doctor = Doctor::findOrFail($id);
         return $doctor;
     }
@@ -105,6 +93,8 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        //FM: Update every field of doctor
         $request->validate([
             'drLastName' => 'required|string',
             'drFirstName' => 'required|string',
@@ -123,10 +113,6 @@ class DoctorController extends Controller
 
         return $doctor;
 
-        // return response()->json([
-        //     "message" => "Doctor updated",
-        //     "result" => $doctor
-        // ], Response::HTTP_OK); 
     }
 
     /**
@@ -137,11 +123,9 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
+        //FM: Delete a doctor
          $doctor = Doctor::destroy($id);
          return $doctor;
 
-        // return response()->json([
-        //     "message" => "Doctor deleted"
-        // ], Response::HTTP_OK); 
     }
 }
