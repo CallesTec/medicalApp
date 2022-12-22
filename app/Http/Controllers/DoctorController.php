@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class DoctorController extends Controller
 {
