@@ -67,8 +67,10 @@ class PatientController extends Controller
             "patBirthDay" => $request->patBirthDay
              ]);
 
-             $patient->save();
-             return $patient;
+             if ($patient != null) {
+                $patient->save();
+                return $patient;
+            } 
 
     }
 
@@ -133,9 +135,11 @@ class PatientController extends Controller
                 $patient->patEmail = $request->patEmail;
                 $patient->patBirthDay = $request->patBirthDay;
 
-                $patient->save();
-                return $patient;
-
+                if ($patient != null) {
+                    $patient->save();
+                    return $patient;
+                } 
+        
 
         }
     

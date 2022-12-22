@@ -53,8 +53,11 @@ class DoctorController extends Controller
             "drPhoneNumber" => $request->drPhoneNumber,
         ]);
 
-        $doctor->save();
-        return $doctor;
+        if ($doctor != null) {
+            $doctor->save();
+            return $doctor;
+        } 
+
 
         
     }
@@ -108,9 +111,11 @@ class DoctorController extends Controller
         $doctor->drPhoneNumber = $request->drPhoneNumber;
         
 
-        $doctor->save();
+        if ($doctor != null) {
+            $doctor->save();
+            return $doctor;
+        } 
 
-        return $doctor;
 
     }
 

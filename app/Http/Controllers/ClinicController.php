@@ -51,9 +51,10 @@ class ClinicController extends Controller
             "cliPhoneNumber" => $request->cliPhoneNumber
         ]);
 
-        $clinic->save();
-
-        return $clinic;
+        if ($clinic != null) {
+            $clinic->save();
+            return $clinic;
+        } 
 
 
     }
@@ -101,8 +102,10 @@ class ClinicController extends Controller
         $clinic->cliAddress = $request->cliAddress;
         $clinic->cliPhoneNumber = $request->cliPhoneNumber;
 
-        $clinic->save();
-        return $clinic;
+        if ($clinic != null) {
+            $clinic->save();
+            return $clinic;
+        } 
 
 
     }
