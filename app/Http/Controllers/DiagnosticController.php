@@ -43,7 +43,7 @@ class DiagnosticController extends Controller
     public function store(Request $request)
     {
 
-
+        
         $diagnostic = new Diagnostic();
         $diagnostic->patient_id = $request->patient_id;
         $diagnostic->doctor_id = $request->doctor_id;
@@ -68,7 +68,7 @@ class DiagnosticController extends Controller
     public function show($id)
     {
         //FM: Show a diagnostic
-        $diagnostic = Diagnostic::finOrFail($id);
+        $diagnostic = Diagnostic::findOrFail($id);
         return $diagnostic;
     }
 
